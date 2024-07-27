@@ -7,10 +7,6 @@ const userList = require('./userList')
 const ADMIN_ID = [257640114, 375850680, 925983969, 431418459]
 export default webhookCallback(bot, "std/http");
 
-export const config = {
-  runtime: "nodejs",
-};
-
 bot.command('start', async (ctx) => await ctx.reply('Welcome! Up and running.'))
 bot.command('list', async (ctx) => {
   if (!ADMIN_ID.includes(ctx.chatId)) {

@@ -1,4 +1,4 @@
-module.exports = [
+export const userList = [
   {
     id: 431418459,
     name: 'Юлия Таирова',

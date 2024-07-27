@@ -1,11 +1,23 @@
-require('dotenv').config();
-const { Bot, GrammyError, HttpError, webhookCallback } = require('grammy');
-const token = process.env.BOT_API_KEY;
-if (!token) throw new Error("BOT_TOKEN is unset");
+// require('dotenv').config();
+import { Bot, GrammyError, HttpError, webhookCallback } from 'grammy';
+const token = '6060359502:AAHglU9CyZitphh2N_Lw76VNZI4cFTAHTuc'
 const bot = new Bot(token);
-const userList = require('./userList')
+//import { userList } from './userList'
 const ADMIN_ID = [257640114, 375850680, 925983969, 431418459]
 export default webhookCallback(bot, "std/http");
+
+const userList = [
+  {
+    id: 431418459,
+    name: 'Юлия Таирова',
+    username: '@juliya_tairova',
+  },
+  {
+    id: 257640114,
+    name: 'Tirthadeva (Timur Tairov)',
+    username: '@tirthadeva',
+  },
+]
 
 bot.command('start', async (ctx) => await ctx.reply('Welcome! Up and running.'))
 bot.command('list', async (ctx) => {
@@ -70,3 +82,4 @@ bot.catch(async (err) => {
 })
 
 bot.start();
+
